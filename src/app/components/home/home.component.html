@@ -18,13 +18,13 @@
     <div class="section" *ngIf="(visited_countries | async).length > 0">
         <span class="heading">Visited Contries</span>
         <div class="country-list b-col-4">        
-            <app-country *ngFor="let country of (visited_countries | async)" [country]="country" class="grow"></app-country>
+            <app-country *ngFor="let country of (visited_countries | async)" [country]="country" (click)="viewCountry(country)" class="grow"></app-country>
         </div>
     </div>
     <div class="section" *ngIf="(countries | async).length > 0">
         <span class="heading">All Contries</span>
         <div class="country-list b-col-4">        
-            <app-country *ngFor="let country of (countries | async); let i = index" [country]="country" class="grow"></app-country>
+            <app-country *ngFor="let country of (countries | async); let i = index" [country]="country" (click)="viewCountry(country, i)" class="grow"></app-country>
         </div>
     </div>
 </div>

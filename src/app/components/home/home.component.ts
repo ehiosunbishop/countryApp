@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Country, CountryService } from 'src/app/services/country.service';
 
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   visited_countries: Observable<Country[]> | any;
   keyword: string | undefined;
 
-  constructor(private countryService: CountryService) { 
+  constructor(private countryService: CountryService, private router: Router) { 
     this.countries = this.countryService.getCountries;
     this.visited_countries = this.countryService.getVisitedCountries;
   }
@@ -22,15 +23,20 @@ export class HomeComponent implements OnInit {
     this.get_countries();
   }
 
+  viewCountry(country: any, i?: number){
+    if(i) this.countryService.updateVisitedCountries(country);
+    this.router.navigate(['view-country/name/'+country.name.common]);
+  }
+
   get_countries(){
     const feedback = this.countryService.get_countries();
 
     feedback.subscribe(
       (res) => {
-        console.log(res);
+        //console.log(res);
       },
       (err) => {
-        console.log(err);
+        //console.log(err);
       }
     )
   }
@@ -41,10 +47,10 @@ export class HomeComponent implements OnInit {
 
     feedback.subscribe(
       (res) => {
-        console.log(res);
+        //console.log(res);
       },
       (err) => {
-        console.log(err);
+        //console.log(err);
       }
     )
   }
@@ -56,10 +62,10 @@ export class HomeComponent implements OnInit {
 
     feedback.subscribe(
       (res) => {
-        console.log(res);
+        //console.log(res);
       },
       (err) => {
-        console.log(err);
+        //console.log(err);
       }
     )
   }

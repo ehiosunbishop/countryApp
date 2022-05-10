@@ -47,11 +47,10 @@ export class ViewCountryComponent implements OnInit {
 
     this.country.subscribe(
       (res: any) => {
-        console.log(res);
-        this.countryService.updateVisitedCountries(res);
+        //console.log(res);
       },
       (err) => {
-        console.log(err);
+        //console.log(err);
       }
     );
   }

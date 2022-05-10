@@ -11,12 +11,10 @@ export class CountryComponent implements OnInit {
 
   @Input() country: any;
 
-  constructor(private countryService: CountryService, private router: Router) { }
+  constructor(private countryService: CountryService) { }
 
   ngOnInit(): void {
   }
 
-  viewCountry(){
-    this.router.navigate(['view-country/name/'+this.country.name.common]);
-  }
+  
 }
