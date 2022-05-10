@@ -1,0 +1,22 @@
+<mat-card class="country-card" (click)="viewCountry()" *ngIf="country" >
+    <div class="img-cont">
+        <img mat-card-image [src]="country.flags.svg" alt="Country Photo">
+    </div>
+    <mat-card-content class="country-card-content">
+        <span class="country-name">{{ country.name.common }}</span>
+        <div class="country-features">
+            <div class="feature">
+                <span class="feature-title">Region:</span>
+                <span class="feature-label">{{ country.region }}</span>
+            </div>
+            <div class="feature">
+                <span class="feature-title">Sub Region:</span>
+                <span class="feature-label">{{ country.subregion }}</span>
+            </div>
+            <div class="feature">
+                <span class="feature-title">Area:</span>
+                <span class="feature-label">{{ country.area }}</span>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

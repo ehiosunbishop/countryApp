@@ -1,0 +1,30 @@
+<div class="page">
+    <div class="filter-section">
+        <mat-card class="search-field">
+            <input matInput type="text" [(ngModel)]="keyword" (input)="onSearchChange()" placeholder="Search for country">
+            <mat-icon>search</mat-icon>
+        </mat-card>
+        <mat-form-field class="select-field" floatLabel="never" appearance="fill">
+            <mat-label>Filter by Region</mat-label>
+            <mat-select #regions (selectionChange)="filter_by_region(regions.value)">
+                <mat-option value="africa">Africa</mat-option>
+                <mat-option value="americas">Americas</mat-option>
+                <mat-option value="asia">Asia</mat-option>
+                <mat-option value="europe">Europe</mat-option>
+                <mat-option value="oceania">Oceania</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div class="section" *ngIf="(visited_countries | async).length > 0">
+        <span class="heading">Visited Contries</span>
+        <div class="country-list b-col-4">        
+            <app-country *ngFor="let country of (visited_countries | async)" [country]="country" class="grow"></app-country>
+        </div>
+    </div>
+    <div class="section" *ngIf="(countries | async).length > 0">
+        <span class="heading">All Contries</span>
+        <div class="country-list b-col-4">        
+            <app-country *ngFor="let country of (countries | async); let i = index" [country]="country" class="grow"></app-country>
+        </div>
+    </div>
+</div>

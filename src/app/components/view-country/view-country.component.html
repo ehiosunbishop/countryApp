@@ -1,0 +1,60 @@
+<div class="page" *ngIf="(country | async) as country_data">
+    <div class="bck-btn-cont">
+        <button mat-raised-button (click)="goBack()">
+            Go Back
+        </button>
+    </div>
+    <div class="country-detail-cont b-col-2"  >
+        <div class="left">
+            <div class="img-cont">
+                <img [src]="country_data?.flags.svg" alt="Contry Flag">
+            </div>
+        </div>
+        <div class="right">
+            <span class="country-name">{{ country_data?.name.common }}</span>
+            <div class="country-features b-col-2">
+                <div class="feature">
+                    <span class="feature-title">Official Name:</span>
+                    <span class="feature-label">{{ country_data?.name.official }}</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-title">Top Level Domain:</span>
+                    <span class="feature-label" *ngFor="let tld of country_data?.tld; last as isLast" >{{ tld }} <span *ngIf="!isLast">,</span></span>
+                </div>
+                <div class="feature">
+                    <span class="feature-title">Population:</span>
+                    <span class="feature-label">{{ country_data?.population }}</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-title">Capital:</span>
+                    <span class="feature-label" *ngFor="let capital of country_data?.capital; last as isLast">{{ capital }} <span *ngIf="!isLast">,</span></span>
+                </div>
+                <div class="feature">
+                    <span class="feature-title">Currencies:</span>
+                    <!-- <span class="feature-label" *ngFor="let currency of country_data?.currencies | keyvalue" >{{ currency.key}}</span> -->
+                    <span class="feature-label" *ngFor="let currency of country_data?.currencies | keyvalue; last as isLast" >{{currency.value.name}} <span *ngIf="!isLast">,</span></span>
+                </div>
+
+                <div class="feature">
+                    <span class="feature-title">Region:</span>
+                    <span class="feature-label">{{ country_data?.region }}</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-title">Sub Region:</span>
+                    <span class="feature-label">{{ country_data?.subregion }}</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-title">Languages:</span>
+                    <!-- <span class="feature-label" *ngFor="let currency of country_data?.currencies | keyvalue" >{{ currency.key}}</span> -->
+                    <span class="feature-label" *ngFor="let lang of country_data?.languages | keyvalue; last as isLast " >{{lang.value}} <span *ngIf="!isLast">,</span></span>
+                </div>
+            </div>
+            <div class="border-countries-cont">
+                <span>Border Countries:</span>
+                <div class="border-countries-list">
+                    <button class="border-country" mat-raised-button *ngFor="let border of country_data.borders" (click)="viewCountry(border)" >{{ border }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

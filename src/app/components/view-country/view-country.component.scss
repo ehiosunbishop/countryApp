@@ -1,0 +1,32 @@
+.country-detail-cont{
+    margin-top: 3em;
+    .left{
+        .img-cont{
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+    }
+    .right{
+        .country-name{
+            font-size: 25px;
+            font-weight: 700;
+            margin-bottom: 1em;
+        }
+        .border-countries-cont{
+            margin: 1em 0px;
+            display: flex;
+            flex-direction: row;
+            column-gap: 1em;
+            width: 100%;
+            .border-countries-list{
+                display: flex;
+                column-gap: 10px;
+            }
+        }
+    }
+}
+.bck-btn-cont{
+    margin: 20px 0;
+}

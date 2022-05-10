@@ -1,0 +1,23 @@
+.country-card {
+    .img-cont{
+        display: block;
+        height: 150px;
+        img{
+            height: inherit;
+        }
+    }
+  .country-card-content {
+    padding: 0px 0px 25px 0px;
+    span {
+      display: block;
+    }
+    .country-name {
+      font-size: 23px;
+      font-weight: 700;
+      margin: 15px 0px;
+    }
+  }
+  :hover{
+
+  }
+}

@@ -1,0 +1,51 @@
+.search-field {
+  display: flex;
+  width: 50%;
+}
+
+.select-field {
+  display: flex;
+  width: 20%;
+}
+
+.filter-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 20px;
+  justify-content: space-between;
+}
+
+.mat-form-field-prefix,
+.mat-form-field-suffix {
+  vertical-align: bottom;
+}
+
+.section {
+  margin-top: 2em;
+  .heading {
+    font-size: 26px;
+  }
+}
+
+.country-list {
+  margin-top: 1em;
+}
+
+@media (max-width: 991px) {
+  .filter-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+  }
+  .search-field {
+    display: flex;
+    width: 100%;
+  }
+
+  .select-field {
+    display: flex;
+    width: 100%;
+  }
+}
